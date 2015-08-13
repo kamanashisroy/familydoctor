@@ -80,6 +80,29 @@ The file uploader packages are added in the pom file.
 		</dependency>
 ```
 
+And we added multipart data in [add-doctor page](../src/main/webapp/WEB-INF/views/admin/add-doctor.jsp).
+
+```
+
+		<form:form commandName="newDoctor" action="${url}" method="POST" enctype="multipart/form-data" >
+...
+...
+				<tr>
+					<td class="text-align-right"><label for="picture"><spring:message
+								code="label.address.picture" /></label></td>
+					<td colspan="3"><form:input path="address.picture" id="picture"
+							maxlength="50" size="48" type="file" /></td>
+				</tr>
+```
+
+And it is added in the [Doctor class](../src/main/java/mum/waa/fd/app/domain/Doctor.java).
+
+```
+	private MultipartFile picture;
+```
+
+This feature can be viewed at the doctor add page when we log-in as admin.
+
 #### Internationlization
 
 Internationalization is provided by the locale configuration in the [servlet-context.xml](../src/main/webapp/WEB-INF/config/security-context.xml).

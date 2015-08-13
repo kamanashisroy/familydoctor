@@ -30,6 +30,12 @@ Again the project application context should be configured with appropriate mysq
 
 ```
 
+If the database is not populated automatically when the site starts or if there is any login problem then the sql needs to be loaded manually. 
+
+```
+source src/main/sql/populate.sql
+```
+
 #### running the mysql server
 
 Please refer to mysql site to run the mysql server. It is typicaly done by following command,
@@ -55,4 +61,18 @@ mvn javadoc:javadoc
 ```
 
 Javadoc is created automatically in the `target/apidocs/` directory.
+
+#### access
+
+The access table is given below,
+
+user | username | pass
+-----|:---------|:------
+admin | admin@gmail.com | admin
+doctor | doctor@gmail.com | doctor
+patient | toanqc@gmail.com | toanqc
+
+
+
+
 

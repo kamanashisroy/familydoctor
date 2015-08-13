@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import org.springframework.web.multipart.MultipartFile;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -51,6 +52,8 @@ public class Doctor extends Person {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DOCTOR_ID")
 	private List<Appointment> appointmentList;
+
+	private MultipartFile picture;
 
 	/**
 	 * <p>Constructor for Doctor.</p>
@@ -163,5 +166,14 @@ public class Doctor extends Person {
 	 */
 	public void setAppointmentList(List<Appointment> appointmentList) {
 		this.appointmentList = appointmentList;
+	}
+
+	public void setPicture(MultipartFile picture) {
+		this.picture = picture;
+	}
+
+
+	public MultipartFile getPicture() {
+		return picture;
 	}
 }

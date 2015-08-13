@@ -18,9 +18,9 @@
 		</c:if>
 
 		<spring:url value="/admin/save-doctor" var="url" htmlEscape="true" />
-		<form:form commandName="newDoctor" action="${url}" method="POST">
+		<form:form commandName="newDoctor" action="${url}" method="POST" enctype="multipart/form-data" >
 
-			<form:errors path="*" cssClass="error-message" element="div" />
+			<form:errors path="*" cssClass="error-message" element="div"/>
 
 			<table class="data-table">
 				<tr>
@@ -48,7 +48,12 @@
 							path="gender" id="gender" value="FEMALE" />&nbsp;&nbsp;<spring:message
 							code="label.gender.female" /></td>
 				</tr>
-
+				<tr>
+					<td class="text-align-right"><label for="picture"><spring:message
+								code="label.address.picture" /></label></td>
+					<td colspan="3"><form:input path="address.picture" id="picture"
+							maxlength="50" size="48" type="file" /></td>
+				</tr>
 				<tr>
 					<td class="text-align-right"><label for="street"><spring:message
 								code="label.address.street" /></label></td>

@@ -17,6 +17,7 @@
 						<th><spring:message code="label.specialization" /></th>
 						<th><spring:message code="label.phone" /></th>
 						<th><spring:message code="label.user.email" /></th>
+						<th><spring:message code="label.user.picture" /></th>
 						<th>&nbsp;</th>
 					</tr>
 				</thead>
@@ -27,6 +28,7 @@
 						<td class="text-first-capital">${fn:toLowerCase(doctor.specialization)}</td>
 						<td>${doctor.phone}</td>
 						<td>${doctor.user.email}</td>
+						<td>${doctor.picture}</td>
 						<td class="gray-text font-size-middle"><spring:url value="/admin/doctor/${doctor.doctorId}"
 								var="url" htmlEscape="true" /> <a href="${url}"><spring:message
 									code="button.label.edit" /></a></td>
