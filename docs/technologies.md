@@ -277,5 +277,9 @@ And the tiles template is in [tiles directory](../src/main/webapp/WEB-INF/tiles/
 
 The project can be built and test using the maven build commands. Please refer to [build instruction](build_instruction.md) page.
 
+#### Separation of concern
 
+All our tiers are separated and they come together to render the website.
+
+![components](https://cloud.githubusercontent.com/assets/973414/9238426/c3786380-4117-11e5-9e9b-ebd6f519a207.jpg)
 
