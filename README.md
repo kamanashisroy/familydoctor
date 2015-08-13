@@ -14,6 +14,8 @@ Technologies
 
 Please refer to [technologies page](docs/technologies.md).
 
+Also there are some [build instructions](docs/build_instruction.md).
+
 Links
 ======
 - [How to test](docs/maven.md)
