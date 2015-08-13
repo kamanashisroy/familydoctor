@@ -119,9 +119,25 @@ label.join.us=আপনিও যোগ দিন
 
 #### Exception handling
 
-Exception handling is done using adviser. 
+We added custom error pages instead of the exception handler. For example, the [error.jsp](../src/main/webapp/WEB-INF/views/error/error.jsp) contains the custom message.
 
-TODO fill me
+```
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8" isErrorPage="true"%>
+<%@page isELIgnored="false"%>
+<%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+
+<tiles:insertDefinition name="404" />
+```
+
+And there are more error pages in [error directory](../src/main/webapp/WEB-INF/views/error/).
+
+And we configured it like the following.
+
+```
+		<security:access-denied-handler
+			error-page="/403" />
+```
 
 #### Ajax/Rest
 
