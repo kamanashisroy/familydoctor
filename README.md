@@ -12,9 +12,11 @@ Please refer to [document page](docs/README.md) and [design document](docs/desig
 Technologies
 =============
 
-Please refer to [technologies page](docs/technologies.md).
+Please refer to [technologies page](docs/technologies.md) and [who did what page](docs/who_did_what.md)
 
 Also there are some [build instructions](docs/build_instruction.md).
+
+
 
 Links
 ======

@@ -170,6 +170,6 @@ Issues
 Future considerations
 ======================
 
-The service should be tested by users and there should be site feedback for that.
+The service should be tested by users and there should be site feedback for that. It also should have the mobile website part.
 
 
