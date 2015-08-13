@@ -44,6 +44,10 @@ Please refer to mysql site to run the mysql server. It is typicaly done by follo
 mysql.server restart
 ```
 
+#### Uploaded file path
+
+It is required to create a '/tmp' file. This file is not available in windows(C:\\tmp) most of the times. 
+
 #### running the web server
 
 And the site can be tested using tomcat server.

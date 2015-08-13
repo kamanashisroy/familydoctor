@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.validation.Valid;
 
+import org.springframework.util.ResourceUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -111,9 +112,13 @@ public class AdminController {
 		try {
 			MultipartFile mfile = newDoctor.getPicture();
 			//String srcPath = context.getServletContext().getRealPath("/"); 
-			String destPath = "resources/images/" + newDoctor.getDoctorId() + ".jpg"; 
-			mfile.transferTo(new File(destPath));
-			newDoctor.setPicturePath(destPath);
+			//String imgdir = "classpath:" + File.separator + "resources" + File.separator + "images";
+			String imgdir = File.separator + "tmp" + File.separator;
+			String picturePath = newDoctor.getDoctorId() + mfile.getOriginalFilename(); 
+			String destPath = imgdir + File.separator + picturePath;
+			//mfile.transferTo(new File(destPath));
+			mfile.transferTo(ResourceUtils.getFile(destPath));
+			newDoctor.setPicturePath(picturePath);
 		} catch(IOException ioe) {
 			throw new RuntimeException(ioe);
 		}
