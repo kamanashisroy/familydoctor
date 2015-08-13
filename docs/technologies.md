@@ -119,7 +119,9 @@ And we added multipart data in [add-doctor page](../src/main/webapp/WEB-INF/view
 And it is added in the [Doctor class](../src/main/java/mum/waa/fd/app/domain/Doctor.java).
 
 ```
+	@Transient
 	private MultipartFile picture;
+	private String picturePath;
 ```
 
 We also added beans in the configuration file.

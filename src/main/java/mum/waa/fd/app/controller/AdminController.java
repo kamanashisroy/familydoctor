@@ -3,6 +3,8 @@ package mum.waa.fd.app.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
 import javax.validation.Valid;
 
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.multipart.MultipartFile;
 
 import mum.waa.fd.app.domain.Doctor;
 import mum.waa.fd.app.service.AppointmentService;
@@ -79,6 +83,9 @@ public class AdminController {
 		return "admin-add-doctor";
 	}
 
+	//@Autowired
+	//private HttpServletRequest context;
+
 	/**
 	 * <p>saveDoctor.</p>
 	 *
@@ -99,6 +106,16 @@ public class AdminController {
 
 		if (bindingResult.hasErrors()) {
 			return "admin-add-doctor";
+		}
+
+		try {
+			MultipartFile mfile = newDoctor.getPicture();
+			//String srcPath = context.getServletContext().getRealPath("/"); 
+			String destPath = "resources/images/" + newDoctor.getDoctorId() + ".jpg"; 
+			mfile.transferTo(new File(destPath));
+			newDoctor.setPicturePath(destPath);
+		} catch(IOException ioe) {
+			throw new RuntimeException(ioe);
 		}
 
 		doctorService.saveDoctor(newDoctor);

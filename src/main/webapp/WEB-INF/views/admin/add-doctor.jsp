@@ -50,8 +50,8 @@
 				</tr>
 				<tr>
 					<td class="text-align-right"><label for="picture"><spring:message
-								code="label.address.picture" /></label></td>
-					<td colspan="3"><form:input path="address.picture" id="picture"
+								code="label.picture" /></label></td>
+					<td colspan="3"><form:input path="picture" id="picture"
 							maxlength="50" size="48" type="file" /></td>
 				</tr>
 				<tr>

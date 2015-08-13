@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.springframework.web.multipart.MultipartFile;
@@ -53,6 +55,9 @@ public class Doctor extends Person {
 	@JoinColumn(name = "DOCTOR_ID")
 	private List<Appointment> appointmentList;
 
+	private String picturePath;
+
+	@Transient
 	private MultipartFile picture;
 
 	/**
@@ -176,4 +181,14 @@ public class Doctor extends Person {
 	public MultipartFile getPicture() {
 		return picture;
 	}
+
+	public void setPicturePath(String picturePath) {
+		this.picturePath = picturePath;
+	}
+
+
+	public String getPicturePath() {
+		return picturePath;
+	}
+
 }
