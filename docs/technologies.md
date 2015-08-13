@@ -5,11 +5,32 @@ Technologies
 
 #### Annotation
 
-We used validation annotations for spring. We also used the JPA annotation like @entity. Our pages are mapped using the @RequestMapping annotation. We used the @RequestBody to do the ajax.
+We used validation annotations for spring. We also used the JPA annotation like @Entity. Our pages are mapped using the @RequestMapping annotation. We used the @RequestBody to do the ajax.
 
 #### Databinding
 
-The databinding works for the form saving pages. It is done by @ModelAttribute annotation.
+The databinding works for the form saving pages. It is done by @ModelAttribute annotation. It is in following controllers,
+
+- [AdminController](../src/main/java/mum/waa/fd/app//controller/AdminController.java)
+- [AppointmentController](../src/main/java/mum/waa/fd/app//controller/AppointmentController.java)
+- [DoctorController](../src/main/java/mum/waa/fd/app//controller/DoctorController.java)
+- [LoginController](../src/main/java/mum/waa/fd/app//controller/LoginController.java)
+- [PatientController](../src/main/java/mum/waa/fd/app//controller/PatientController.java)
+
+For example, we have it in admin page.
+
+```
+	@RequestMapping(value = "/admin/add-doctor", method = RequestMethod.GET)
+	public String addDoctorAcount(@ModelAttribute("newDoctor") Doctor newDoctor, Model model) {
+
+		model.addAttribute("specializations", appointmentService.getAllSpecialization());
+		return "admin-add-doctor";
+	}
+
+```
+
+It can be tested in all the save pages, for example doctor creation pages and patient register pages.
+
 
 #### Persistance in JPA 
 
@@ -99,6 +120,15 @@ And it is added in the [Doctor class](../src/main/java/mum/waa/fd/app/domain/Doc
 
 ```
 	private MultipartFile picture;
+```
+
+We also added beans in the configuration file.
+
+```
+<bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="102400" />
+</bean>
 ```
 
 This feature can be viewed at the doctor add page when we log-in as admin.
