@@ -170,6 +170,8 @@ label.join.us=আপনিও যোগ দিন
 ...
 ```
 
+In the right corner of every page there is a translation link to change the language of the site.
+
 #### Exception handling
 
 We added custom error pages instead of the exception handler. For example, the [error.jsp](../src/main/webapp/WEB-INF/views/error/error.jsp) contains the custom message.
@@ -191,6 +193,8 @@ And we configured it like the following.
 		<security:access-denied-handler
 			error-page="/403" />
 ```
+
+When people hit an unknown page in the site the custom error page show displayed in the browser.
 
 #### Ajax/Rest
 
@@ -273,6 +277,8 @@ And the login page is configured too.
 
 
 ```
+
+Security features can be seen in the home page. As the user is not logged in it asks user to login.
 
 #### Tiles
 
